@@ -12,6 +12,7 @@
 		<module>board-role-client</module>
 		<module>board-member-client</module>
 		<module>board-token-client</module>
+		<module>board-post-client</module>
 	</modules>
 
 	<dependencies>
