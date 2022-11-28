@@ -50,4 +50,28 @@ public class RoleController implements RoleFeignClient {
 				.body(roleService.searchRoles(cond));
 	}
 
+	@Override
+	public ResponseEntity<Void> grantRoleToMember(long roleNo, long memberNo) {
+		roleService.grantRoleToMember(roleNo, memberNo);
+		return ResponseEntity.status(HttpStatus.CREATED).build();
+	}
+
+	@Override
+	public ResponseEntity<Void> revokeRoleToMember(long roleNo, long memberNo) {
+		roleService.revokeRoleToMember(roleNo, memberNo);
+		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+	}
+
+	@Override
+	public ResponseEntity<Void> revokeRolesToMember(long memberNo) {
+		roleService.revokeRolesToMember(memberNo);
+		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+	}
+
+	@Override
+	public ResponseEntity<List<RoleDetails>> getRolesToMember(long memberNo) {
+		return ResponseEntity.status(HttpStatus.OK)
+				.body(roleService.getRolesToMember(memberNo));
+	}
+
 }

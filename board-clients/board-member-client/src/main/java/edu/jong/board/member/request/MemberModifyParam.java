@@ -22,7 +22,10 @@ import lombok.ToString;
 public class MemberModifyParam implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-
+	
+	@Schema(description = "비밀번호")
+	private String password;
+	
 	@Schema(description = "이름")
 	@Size(max = 30)
 	private String name;

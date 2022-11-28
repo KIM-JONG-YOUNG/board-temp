@@ -9,7 +9,7 @@ spring:
       password: 
 
 springdoc:
-  title: Role API Document
+  title: Member API Document
   version: 1.0.0
   swagger-ui:
     path: /members/api-docs

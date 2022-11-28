@@ -10,6 +10,8 @@
 
 	<modules>
 		<module>board-role-service</module>
+		<module>board-member-service</module>
+		<module>board-token-service</module>
 	</modules>
 
 	<dependencies>

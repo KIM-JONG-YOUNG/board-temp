@@ -53,4 +53,26 @@ public interface RoleFeignClient {
 	ResponseEntity<List<RoleDetails>> searchRoles(
 			RoleSearchCond cond);
 
+    @Operation(summary = "특정 권한 부여 API")
+	@PostMapping(value = "/roles/{roleNo}/members/{memberNo}")
+    ResponseEntity<Void> grantRoleToMember(
+    		@PathVariable long roleNo,
+    		@PathVariable long memberNo);
+
+    @Operation(summary = "특정 권한 제거 API")
+	@DeleteMapping(value = "/roles/{roleNo}/members/{memberNo}")
+    ResponseEntity<Void> revokeRoleToMember(
+    		@PathVariable long roleNo,
+    		@PathVariable long memberNo);
+
+    @Operation(summary = "전체 권한 제거 API")
+	@DeleteMapping(value = "/roles/members/{memberNo}")
+    ResponseEntity<Void> revokeRolesToMember(
+    		@PathVariable long memberNo);
+
+    @Operation(summary = "전체 권한 조회 API")
+	@GetMapping(value = "/roles/members/{memberNo}")
+    ResponseEntity<List<RoleDetails>> getRolesToMember(
+    		@PathVariable long memberNo);
+
 }

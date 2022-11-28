@@ -1,0 +1,30 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>edu.jong</groupId>
+		<artifactId>board-services</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>board-member-service</artifactId>
+
+	<dependencies>
+		<!-- JPA 의존성 및 설정 -->
+		<dependency>
+			<groupId>edu.jong</groupId>
+			<artifactId>board-jpa-core</artifactId>
+		</dependency>
+		<!-- Redis 의존성 및 설정 -->
+		<dependency>
+			<groupId>edu.jong</groupId>
+			<artifactId>board-redis-core</artifactId>
+		</dependency>
+		<!-- 사용자 API Client -->
+		<dependency>
+			<groupId>edu.jong</groupId>
+			<artifactId>board-member-client</artifactId>
+		</dependency>
+	</dependencies>
+
+</project>

@@ -13,6 +13,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import edu.jong.board.BoardConstants.TableNames;
 import edu.jong.board.jpa.converter.AbstractAttributeConverter;
 import edu.jong.board.jpa.entity.BaseTimeEntity;
 import edu.jong.board.role.type.APIMethod;
@@ -21,12 +22,13 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 
 @Getter
 @Entity
 @ToString
-@Table(name = "tb_role")
+@Table(name = TableNames.TB_ROLE)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class RoleEntity extends BaseTimeEntity {
 
@@ -40,10 +42,13 @@ public class RoleEntity extends BaseTimeEntity {
 	@Column(unique = true)
 	private String name;
 
+	@Setter
 	@NotNull
+	@Column(length = 10)
 	@Convert(converter = APIMethodAttributeConverter.class)
 	private APIMethod method;
 
+	@Setter
 	@NotBlank
 	@Size(max = 60)
 	@AntPahtPattern
@@ -56,8 +61,6 @@ public class RoleEntity extends BaseTimeEntity {
 		this.method = method;
 		this.urlPattern = urlPattern;
 	}
-
-
 
 	@Converter
 	public static class APIMethodAttributeConverter extends AbstractAttributeConverter<APIMethod, String> {

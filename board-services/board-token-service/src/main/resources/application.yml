@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: token-service
+  profiles:
+    active:
+    - redis
+    - actuator
+    - swagger
+  config:
+    import: optional:configserver:http://127.0.0.1:8888

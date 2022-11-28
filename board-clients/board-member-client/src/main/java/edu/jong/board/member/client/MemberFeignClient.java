@@ -34,16 +34,9 @@ public interface MemberFeignClient {
 	@PutMapping(value = "/members/{memberNo}", 
 			consumes = MediaType.APPLICATION_JSON_VALUE,
 			produces = MediaType.APPLICATION_JSON_VALUE)
-	ResponseEntity<MemberDetails> modifyMember(
+	ResponseEntity<MemberDetails> modifyMember( 
 			@PathVariable long memberNo,
 			@RequestBody MemberModifyParam param);
-
-    @Operation(summary = "사용자 비밀번호 수정 API")
-	@PutMapping(value = "/members/{memberNo}/password", 
-			consumes = MediaType.APPLICATION_JSON_VALUE,
-			produces = MediaType.APPLICATION_JSON_VALUE)
-	ResponseEntity<MemberDetails> modifyMemberPassword(
-			@RequestBody String newPassword);
 
     @Operation(summary = "사용자 삭제 API")
 	@DeleteMapping(value = "/members/{memberNo}")

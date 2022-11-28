@@ -3,6 +3,7 @@ package edu.jong.board.redis.service;
 import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
@@ -32,7 +33,7 @@ public class RedisServiceImpl implements RedisService {
 	}
 
 	@Override
-	public void caching(String key, Object value, long expireSeconds) {
+	public void  caching(String key, Object value, long expireSeconds) {
 
 		String json = null;
 
@@ -54,8 +55,10 @@ public class RedisServiceImpl implements RedisService {
 	public <T> Optional<T> get(String key, TypeReference<T> type) {
 
 		String json = redisTemplate.opsForValue().get(key);
-		T value = null;
 
+		if (StringUtils.isBlank(json)) return Optional.empty(); 
+					
+		T value = null;
 		try {
 			value = objectMapper.readValue(json, type);
 		} catch (JsonProcessingException e) {

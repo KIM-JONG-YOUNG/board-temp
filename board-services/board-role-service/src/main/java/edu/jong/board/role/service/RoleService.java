@@ -28,4 +28,12 @@ public interface RoleService {
 	List<RoleDetails> searchRoles(
 			@Valid RoleSearchCond cond);
 
+	void grantRoleToMember(long roleNo, long memberNo);
+
+	void revokeRoleToMember(long roleNo, long memberNo);
+
+	void revokeRolesToMember(long memberNo);
+
+	List<RoleDetails> getRolesToMember(long memberNo);
+	
 }
