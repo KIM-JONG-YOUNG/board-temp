@@ -45,6 +45,11 @@
 			<groupId>org.mapstruct</groupId>
 			<artifactId>mapstruct</artifactId>
 		</dependency>
+		<!-- Spring Actuator -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
 		<!-- 공통 상수 -->
 		<dependency>
 			<groupId>edu.jong</groupId>
