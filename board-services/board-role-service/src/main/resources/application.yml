@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: role-service
+  profiles:
+    active:
+    - jpa
+    - redis
+    - actuator
+  config:
+    import: optional:configserver:http://127.0.0.1:8888

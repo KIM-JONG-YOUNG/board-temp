@@ -1,0 +1,37 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>edu.jong</groupId>
+		<artifactId>board</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>board-cores</artifactId>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>board-jpa-core</module>
+		<module>board-redis-core</module>
+	</modules>
+
+	<dependencies>
+		<!-- Spring Dev-Tools -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
+		<!-- Spring Configuration Processor -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<!-- 공통 상수 -->
+		<dependency>
+			<groupId>edu.jong</groupId>
+			<artifactId>board-common</artifactId>
+		</dependency>
+	</dependencies>
+
+</project>
