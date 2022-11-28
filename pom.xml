@@ -44,6 +44,12 @@
 				<artifactId>mapstruct</artifactId>
 				<version>${mapstruct.version}</version>
 			</dependency>
+			<!-- Spring Open API UI -->
+			<dependency>
+				<groupId>org.springdoc</groupId>
+				<artifactId>springdoc-openapi-ui</artifactId>
+				<version>${openapi.ui.version}</version>
+			</dependency>
 			<!-- 공통 상수 -->
 			<dependency>
 				<groupId>edu.jong</groupId>

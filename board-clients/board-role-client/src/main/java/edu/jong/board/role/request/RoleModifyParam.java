@@ -5,6 +5,7 @@ import java.io.Serializable;
 import javax.validation.constraints.Size;
 
 import edu.jong.board.role.type.APIMethod;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,8 +22,10 @@ public class RoleModifyParam implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 
+    @Schema(description = "허용 메소드")
 	private APIMethod method;
 	
+    @Schema(description = "허용 URL 패턴")
 	@Size(max = 60)
 	private String urlPattern;
 

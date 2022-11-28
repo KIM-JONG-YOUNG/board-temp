@@ -9,6 +9,7 @@ import javax.validation.constraints.Size;
 
 import edu.jong.board.role.type.APIMethod;
 import edu.jong.board.role.type.AntPahtPattern;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -25,14 +26,17 @@ public class RoleAddParam implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 
+    @Schema(description = "권한명", defaultValue = "ROLE_TEST")
 	@NotBlank
 	@Size(max = 30)
 	@Pattern(regexp = "^ROLE_[A-Z]+$")
 	private String name;
 
+    @Schema(description = "허용 메소드")
 	@NotNull
 	private APIMethod method;
 	
+    @Schema(description = "허용 URL 패턴")
 	@NotBlank
 	@Size(max = 60)
 	@AntPahtPattern
