@@ -16,16 +16,21 @@ import edu.jong.board.role.request.RoleAddParam;
 import edu.jong.board.role.request.RoleModifyParam;
 import edu.jong.board.role.request.RoleSearchCond;
 import edu.jong.board.role.response.RoleDetails;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
+@Tag(name = "권한", description = "권한 관련 API")
 @FeignClient(name = "role-service")
 public interface RoleFeignClient {
 
+    @Operation(summary = "권한 생성 API")
 	@PostMapping(value = "/roles", 
 			consumes = MediaType.APPLICATION_JSON_VALUE,
 			produces = MediaType.APPLICATION_JSON_VALUE)
 	ResponseEntity<RoleDetails> addRole(
 			@RequestBody RoleAddParam param);
 
+    @Operation(summary = "권한 수정 API")
 	@PutMapping(value = "/roles/{roleNo}", 
 			consumes = MediaType.APPLICATION_JSON_VALUE,
 			produces = MediaType.APPLICATION_JSON_VALUE)
@@ -33,14 +38,17 @@ public interface RoleFeignClient {
 			@PathVariable long roleNo,
 			@RequestBody RoleModifyParam param);
 
+    @Operation(summary = "권한 삭제 API")
 	@DeleteMapping(value = "/roles/{roleNo}")
 	ResponseEntity<Void> removeRole(
 			@PathVariable long roleNo);
 
+    @Operation(summary = "권한 조회 API")
 	@GetMapping(value = "/roles/{roleNo}")
 	ResponseEntity<RoleDetails> getRole(
 			@PathVariable long roleNo);
 
+    @Operation(summary = "권한 검색 API")
 	@GetMapping(value = "/roles")
 	ResponseEntity<List<RoleDetails>> searchRoles(
 			RoleSearchCond cond);

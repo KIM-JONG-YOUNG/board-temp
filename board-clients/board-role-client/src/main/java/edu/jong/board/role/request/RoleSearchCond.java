@@ -24,15 +24,15 @@ public class RoleSearchCond implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 
-    @Schema(description = "권한명", defaultValue = "ROLE_TEST")
+    @Schema(description = "검색을 위한 권한명", defaultValue = "ROLE_TEST")
 	@Size(max = 30)
 	@Pattern(regexp = "^[A-Z]+$")
 	private String name;
 
-    @Schema(description = "허용 메소드")
+    @Schema(description = "검색을 위한 허용 메소드")
 	private APIMethod method;
 	
-    @Schema(description = "허용 URL 패턴")
+    @Schema(description = "검색을 위한 허용 URL 패턴")
 	@Size(max = 60)
 	private String urlPattern;
 
