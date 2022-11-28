@@ -19,7 +19,7 @@ import edu.jong.board.role.response.RoleDetails;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
-@Tag(name = "권한", description = "권한 관련 API")
+@Tag(name = "권한", description = "권한 API 목록")
 @FeignClient(name = "role-service")
 public interface RoleFeignClient {
 

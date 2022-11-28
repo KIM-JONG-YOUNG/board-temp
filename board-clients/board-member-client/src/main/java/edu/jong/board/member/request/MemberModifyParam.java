@@ -1,12 +1,11 @@
-package edu.jong.board.role.request;
+package edu.jong.board.member.request;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
 
-import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 
-import edu.jong.board.role.type.APIMethod;
+import edu.jong.board.member.type.Gender;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -20,21 +19,20 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
-public class RoleSearchCond implements Serializable{
+public class MemberModifyParam implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
+	@Schema(description = "이름")
 	@Size(max = 30)
-	@Pattern(regexp = "^[A-Z]+$")
 	private String name;
 
-	private APIMethod method;
-	
+	@Schema(description = "성별")
+	private Gender gender;
+
+	@Schema(description = "이메일")
+	@Email
 	@Size(max = 60)
-	private String urlPattern;
+	private String email;
 
-	private LocalDateTime from;
-
-	private LocalDateTime to;
-	
 }

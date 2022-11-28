@@ -1,0 +1,25 @@
+server:
+  port: 0
+
+spring:
+  datasource:
+    hikari:
+      jdbc-url: jdbc:h2:~/member;
+      username: sa
+      password: 
+
+springdoc:
+  title: Role API Document
+  version: 1.0.0
+  swagger-ui:
+    path: /members/api-docs
+  packages-to-scan: edu.jong.board.member
+  
+eureka:
+  instance:
+    instance-id: ${spring.cloud.client.hostname}:${spring.application.instance_id:${random.value}}
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka
